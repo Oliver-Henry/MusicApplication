@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MusicApplication</string>
+    <string name="title_rock">Rock</string>
+    <string name="title_classic">Classic</string>
+    <string name="title_pop">Pop</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
