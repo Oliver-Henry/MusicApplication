@@ -1,4 +1,4 @@
-package com.example.olive.musicapplication;
+package com.example.olive.musicapplication.rock_music;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,13 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.olive.musicapplication.model.MusicModel;
-import com.example.olive.musicapplication.model.Result;
+import com.example.olive.musicapplication.OnSongSelectedListener;
+import com.example.olive.musicapplication.R;
+import com.example.olive.musicapplication.data.network.model.Result;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
-
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by olive on 10/02/2018.
@@ -24,14 +23,12 @@ import io.reactivex.functions.Consumer;
 
 class RockSongsAdapter extends RecyclerView.Adapter<RockSongsAdapter.MyViewHolder>{
     Context applicationContext;
-    Consumer<MusicModel> consumer;
     List<Result> results;
     int row;
 
 
-    public RockSongsAdapter(Context applicationContext, Consumer<MusicModel> consumer, List<Result> results, int row) {
+    public RockSongsAdapter(Context applicationContext, List<Result> results, int row) {
         this.applicationContext = applicationContext;
-        this.consumer = consumer;
         this.results = results;
         this.row = row;
     }

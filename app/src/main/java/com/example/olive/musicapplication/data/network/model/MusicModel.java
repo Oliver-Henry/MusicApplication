@@ -1,4 +1,4 @@
-package com.example.olive.musicapplication.model;
+package com.example.olive.musicapplication.data.network.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

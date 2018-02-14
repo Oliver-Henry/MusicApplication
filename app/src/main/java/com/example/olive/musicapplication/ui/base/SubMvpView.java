@@ -13,26 +13,30 @@
  * limitations under the License
  */
 
-package com.example.olive.musicapplication.utils;
-
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+package com.example.olive.musicapplication.ui.base;
 
 /**
  * Created by janisharali on 27/01/17.
  */
 
-public final class NetworkUtils {
+/**
+ * Base interface that any class that wants to act as a View in the MVP (Model View Presenter)
+ * pattern must implement. Generally this interface will be extended by a more specific interface
+ * that then usually will be implemented by an Activity or Fragment.
+ */
+public interface SubMvpView extends MvpView {
 
-    private NetworkUtils() {
-        // This utility class is not publicly instantiable
-    }
+    void onCreate();
 
-    public static boolean isNetworkConnected(Context context) {
-        ConnectivityManager cm =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
-    }
+    void onStart();
+
+    void onResume();
+
+    void onPause();
+
+    void onStop();
+
+    void onDestroy();
+
+    void attachParentMvpView(MvpView mvpView);
 }

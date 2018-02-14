@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.olive.musicapplication.model.MusicModel;
-import com.example.olive.musicapplication.model.Result;
+import com.example.olive.musicapplication.data.network.model.MusicModel;
+import com.example.olive.musicapplication.data.network.model.Result;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

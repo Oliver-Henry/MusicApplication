@@ -1,6 +1,6 @@
-package com.example.olive.musicapplication.service;
+package com.example.olive.musicapplication.data.network.service;
 
-import com.example.olive.musicapplication.model.MusicModel;
+import com.example.olive.musicapplication.data.network.model.MusicModel;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

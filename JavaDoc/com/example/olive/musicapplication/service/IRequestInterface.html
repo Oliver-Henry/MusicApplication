@@ -48,8 +48,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../com/example/olive/musicapplication/service/APIList.html" title="class in com.example.olive.musicapplication.service"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../com/example/olive/musicapplication/service/ServiceConnection.html" title="class in com.example.olive.musicapplication.service"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/example/olive/musicapplication/service/APIList.html" title="class in com.example.olive.musicapplication.data.network.service"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/example/olive/musicapplication/service/ServiceConnection.html" title="class in com.example.olive.musicapplication.data.network.service"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/example/olive/musicapplication/service/IRequestInterface.html" target="_top">Frames</a></li>
@@ -91,7 +91,7 @@ var activeTableTab = "activeTableTab";
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">com.example.olive.musicapplication.service</div>
+<div class="subTitle">com.example.olive.musicapplication.data.network.service</div>
 <h2 title="Interface IRequestInterface" class="title">Interface IRequestInterface</h2>
 </div>
 <div class="contentContainer">
@@ -121,15 +121,15 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.model">MusicModel</a>&gt;</code></td>
+<td class="colFirst"><code>io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.data.network.model">MusicModel</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/example/olive/musicapplication/service/IRequestInterface.html#getClassicMusicList--">getClassicMusicList</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.model">MusicModel</a>&gt;</code></td>
+<td class="colFirst"><code>io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.data.network.model">MusicModel</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/example/olive/musicapplication/service/IRequestInterface.html#getPopMusicList--">getPopMusicList</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.model">MusicModel</a>&gt;</code></td>
+<td class="colFirst"><code>io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.data.network.model">MusicModel</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/example/olive/musicapplication/service/IRequestInterface.html#getRockMusicList--">getRockMusicList</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
@@ -154,7 +154,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <h4>getRockMusicList</h4>
 <pre>@GET(value="search?term=rock&amp;media=music&amp;entity=song&amp;limit=50")
-io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.model">MusicModel</a>&gt;&nbsp;getRockMusicList()</pre>
+io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.data.network.model">MusicModel</a>&gt;&nbsp;getRockMusicList()</pre>
 </li>
 </ul>
 <a name="getClassicMusicList--">
@@ -164,7 +164,7 @@ io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplic
 <li class="blockList">
 <h4>getClassicMusicList</h4>
 <pre>@GET(value="search?term=classic&amp;media=music&amp;entity=song&amp;limit=50")
-io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.model">MusicModel</a>&gt;&nbsp;getClassicMusicList()</pre>
+io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.data.network.model">MusicModel</a>&gt;&nbsp;getClassicMusicList()</pre>
 </li>
 </ul>
 <a name="getPopMusicList--">
@@ -174,7 +174,7 @@ io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplic
 <li class="blockList">
 <h4>getPopMusicList</h4>
 <pre>@GET(value="search?term=pop&amp;media=music&amp;entity=song&amp;limit=50")
-io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.model">MusicModel</a>&gt;&nbsp;getPopMusicList()</pre>
+io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplication/model/MusicModel.html" title="class in com.example.olive.musicapplication.data.network.model">MusicModel</a>&gt;&nbsp;getPopMusicList()</pre>
 </li>
 </ul>
 </li>
@@ -204,8 +204,8 @@ io.reactivex.Observable&lt;<a href="../../../../../com/example/olive/musicapplic
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../com/example/olive/musicapplication/service/APIList.html" title="class in com.example.olive.musicapplication.service"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../com/example/olive/musicapplication/service/ServiceConnection.html" title="class in com.example.olive.musicapplication.service"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/example/olive/musicapplication/service/APIList.html" title="class in com.example.olive.musicapplication.data.network.service"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/example/olive/musicapplication/service/ServiceConnection.html" title="class in com.example.olive.musicapplication.data.network.service"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/example/olive/musicapplication/service/IRequestInterface.html" target="_top">Frames</a></li>

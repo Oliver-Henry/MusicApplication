@@ -1,6 +1,6 @@
 package com.example.olive.musicapplication.controller;
 
-import com.example.olive.musicapplication.model.Result;
+import com.example.olive.musicapplication.data.network.model.Result;
 
 import java.util.ArrayList;
 

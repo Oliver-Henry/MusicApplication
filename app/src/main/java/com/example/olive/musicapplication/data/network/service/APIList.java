@@ -1,4 +1,4 @@
-package com.example.olive.musicapplication.service;
+package com.example.olive.musicapplication.data.network.service;
 
 /**
  * Created by olive on 10/02/2018.

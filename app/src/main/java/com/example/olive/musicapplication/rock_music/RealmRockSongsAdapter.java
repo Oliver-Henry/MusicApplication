@@ -1,4 +1,4 @@
-package com.example.olive.musicapplication;
+package com.example.olive.musicapplication.rock_music;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.olive.musicapplication.model.Result;
+import com.example.olive.musicapplication.R;
+import com.example.olive.musicapplication.data.network.model.Result;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

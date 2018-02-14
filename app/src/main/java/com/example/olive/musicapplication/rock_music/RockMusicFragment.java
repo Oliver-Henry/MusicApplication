@@ -1,4 +1,4 @@
-package com.example.olive.musicapplication;
+package com.example.olive.musicapplication.rock_music;
 
 
 import android.os.Bundle;
@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.olive.musicapplication.R;
 import com.example.olive.musicapplication.controller.RealmHelper;
-import com.example.olive.musicapplication.model.MusicModel;
-import com.example.olive.musicapplication.model.Result;
-import com.example.olive.musicapplication.service.IRequestInterface;
-import com.example.olive.musicapplication.service.ServiceConnection;
+import com.example.olive.musicapplication.data.network.AppDataManager;
+import com.example.olive.musicapplication.data.network.model.MusicModel;
+import com.example.olive.musicapplication.data.network.model.Result;
+import com.example.olive.musicapplication.ui.base.BaseFragment;
+import com.example.olive.musicapplication.ui.utils.rx.AppSchedulerProvider;
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 
 import java.util.ArrayList;
@@ -31,12 +33,13 @@ import io.realm.Realm;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RockMusicFragment extends Fragment {
+public class RockMusicFragment extends BaseFragment implements IRockMusicMvpView {
 
-    private CompositeDisposable compositeDisposable;
-    private IRequestInterface iRequestInterface;
+    //private CompositeDisposable compositeDisposable;
+    //private IRequestInterface iRequestInterface;
     private RecyclerView recyclerView;
     private SwipeRefreshLayout refreshLayout;
+    private RockMusicPresenterImpl<RockMusicFragment> rockMusicFragmentRockMusicPresenter;
 
     private Realm realm;
     private RealmHelper realmHelper;
@@ -59,16 +62,18 @@ public class RockMusicFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        iRequestInterface= ServiceConnection.getConnection();
+        //iRequestInterface= ServiceConnection.getConnection();
         recyclerView=  view.findViewById(R.id.rVRock);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         refreshLayout= view.findViewById(R.id.swiperefreshRock);
-        compositeDisposable = new CompositeDisposable();
+        //compositeDisposable = new CompositeDisposable();
 //        int position = getArguments().getInt("position", -1);
 //        String previewURL = getArguments().getString("previewURL");
         initRealm();
         callService();
 //        this.results = results;
+        rockMusicFragmentRockMusicPresenter = new RockMusicPresenterImpl<>(new AppDataManager(), new AppSchedulerProvider(), new CompositeDisposable());
+        rockMusicFragmentRockMusicPresenter.onAttach(this);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -95,7 +100,7 @@ public class RockMusicFragment extends Fragment {
                     @Override
                     public void accept(Boolean isConnectedToInternet) {
                         if(isConnectedToInternet){
-                            displayRockSongs();
+                            rockMusicFragmentRockMusicPresenter.loadRockMusicList();
                         }
                         else{
                             recyclerView.setAdapter(new RealmRockSongsAdapter(getActivity().getApplicationContext(), R.layout.row, arrayList));
@@ -105,31 +110,25 @@ public class RockMusicFragment extends Fragment {
                 });
     }
 
+
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if(compositeDisposable!=null && !compositeDisposable.isDisposed()){
-            compositeDisposable.clear();
-        }
-    }
-    // Run rock songs adapter
-    public void displayRockSongs(){
-        compositeDisposable.add(
-        iRequestInterface.getRockMusicList()
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<MusicModel>() {
-                    @Override
-                    public void accept(MusicModel musicModel) throws Exception {
-                        recyclerView.setAdapter(new RockSongsAdapter(getActivity().getApplicationContext(), this, musicModel.getResults(), R.layout.row));
-                        refreshLayout.setRefreshing(false);
-                    }
-                }, (Throwable throwable) -> {
-                    Toast.makeText(getActivity(), throwable.getMessage(), Toast.LENGTH_LONG).show(); // test error
-                    refreshLayout.setRefreshing(false);
-                }));
+    public void onFetchDataProgress() {
+        showLoading();
     }
 
+    @Override
+    public void onFetchDataSuccess(MusicModel musicModel) {
+        recyclerView.setAdapter(new RockSongsAdapter(getActivity().getApplicationContext(), musicModel.getResults(), R.layout.row));
+        refreshLayout.setRefreshing(false);
+        hideLoading();
+    }
+
+    @Override
+    public void onFetchDataError(String error) {
+        refreshLayout.setRefreshing(false);
+        showMessage(error);
+        hideLoading();
+    }
 
 
 //    public void saveToRealm(){

@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.olive.musicapplication.rock_music.RockMusicFragment;
+
 public class MainActivity extends AppCompatActivity{
     private static FragmentManager fragmentManager;
 

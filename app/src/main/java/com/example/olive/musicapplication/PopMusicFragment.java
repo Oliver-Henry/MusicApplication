@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.olive.musicapplication.model.MusicModel;
-import com.example.olive.musicapplication.service.IRequestInterface;
-import com.example.olive.musicapplication.service.ServiceConnection;
+import com.example.olive.musicapplication.data.network.model.MusicModel;
+import com.example.olive.musicapplication.data.network.service.IRequestInterface;
+import com.example.olive.musicapplication.data.network.service.ServiceConnection;
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
